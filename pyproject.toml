@@ -1,0 +1,25 @@
+[project]
+name = "kafka-chat"
+version = "0.2.0"
+description = "kafka python chat"
+authors = [
+    {name = "lucas_hub12", email = "hyeonggyunbae@gmail.com"},
+]
+dependencies = ["tqdm>=4.67.1", "kafka-python>=2.1.5"]
+requires-python = ">=3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
+packages = [{ include = "kafka_chat", from = "src" }]
+
+[project.scripts]
+chatpro = "kafka_chat.cli:main"
+chatcon = "kafka_chat.chatcon:run_chat_consumer"
+chatthread = "kafka_chat.chatthread:run_chat_thread_topic"
