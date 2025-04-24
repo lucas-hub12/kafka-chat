@@ -28,3 +28,23 @@ $ vi src/kafka_chat/chatcon.py # 생성
 $ vi pyproject.toml # 요구 사항 추가
 $ $ pdm install
 ```
+## cli 를 위한 코드
+- pyproject.toml 추가
+```bash
+[tool.pdm]
+distribution = true
+packages = [{ include = "kafka_chat", from = "src" }]
+
+[project.scripts]
+chatpro = "kafka_chat.cli:main"
+chatcon = "kafka_chat.chatcon:run_chat_consumer"
+```
+- 추가 반영 실행 코드
+```bash
+pip install -e .
+```
+## 실행 화면
+![image](https://github.com/user-attachments/assets/94754857-611a-4534-ac65-18a5300027ad)
+
+![image](https://github.com/user-attachments/assets/04cbbe17-bcb8-493a-a666-236ca8984d0b)
+
