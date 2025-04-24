@@ -11,8 +11,8 @@ def run_chat_consumer():
         topic,
         bootstrap_servers=bootstrap_servers,
         group_id=group_id,
-        auto_offset_reset='earliest',
-        enable_auto_commit=True
+        auto_offset_reset='latest',
+        enable_auto_commit=False
     )
 
     try:
